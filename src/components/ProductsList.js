@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ProductsService from '../services/products';
 
 class ProductsList extends React.Component {
@@ -28,7 +27,7 @@ class ProductsList extends React.Component {
                                     this.state.products.map((product, index) => (
                                         <div className="col-3 my-3" key={product.id}>
                                             <Link to={`/products/${product.id}`} style={{ textDecoration: 'none' }}>
-                                                <div className="card" href="/products/:">
+                                                <div className="card">
                                                     <img className="card-img-top" src={product.imageUrl} alt="" />
                                                     <div className="card-body">
                                                         <h4 className="card-title">{product.name}</h4>

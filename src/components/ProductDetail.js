@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import ProductsService from '../services/products';
 import Reviews from './Reviews';
+import AddReview from './AddReview';
 
 class ProductDetail extends Component {
     state = {
@@ -13,7 +13,7 @@ class ProductDetail extends Component {
         switch (this.state.status) {
             case 'LOADING':
                 el = (
-                    <div classNameName="alert alert-info">
+                    <div className="alert alert-info">
                         Products are being fetched.
                     </div>
                 );
@@ -47,44 +47,12 @@ class ProductDetail extends Component {
                             <div className="col-12">
                                 <Reviews reviews={this.state.products.reviews}/>
                             </div>
+                            <div className="col-12">
+                                <AddReview id={this.state.products.id}/>
+                            </div>
                         </div>
                         <br/>
-                        <h2>Add a review</h2>
-                        <hr></hr>
-                        <form /* (ngSubmit)="addReview($event)" */>
-                            <div className="form-group">
-                                <label for="name">Your name:</label>
-                                <input type="text" name="name" id="name" className="form-control" placeholder="" aria-describedby="helpId" /* [(ngModel)]=review.reviewer */ />
-                                <small id="helpId" className="text-muted">Your name goes in here</small>
-                            </div>
-                            <div className="form-group">
-                                <label for="rating">Rating:</label>
-                                <select name="rating" id="" className="form-control" aria-describedby="helpStarRating" /* [(ngModel)]=review.starRating */>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <small id="helpStarRating" className="text-muted">Your rating (1-least, 5-highest))</small>
-                            </div>
-                            <div className="form-group">
-                                <label for="title">Your title for the review:</label>
-                                <textarea name="title" id="title" className="form-control" aria-describedby="helpTitle" /* [(ngModel)]=review.title */></textarea>
-                                <small id="helpTitle" className="text-muted">Your title for the review goes in here...</small>
-                            </div >
-                            <div className="form-group">
-                                <label for="review">Your review:</label>
-                                <textarea name="review" id="review" className="form-control" aria-describedby="helpReview" /* [(ngModel)]=review.text */></textarea>
-                                <small id="helpReview" className="text-muted">Your review for the product goes in here...</small>
-                            </div >
-                            {/* <div className="form-group">
-                                <button type="submit" value="Add review" />
-                            </div> */}
-                            <button className="form-group btn btn-primary" type="submit">
-                                Add review
-                            </button>
-                        </form >
+                        
                     </div>
                 );
                 break;
